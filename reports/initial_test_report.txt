@@ -4,65 +4,6 @@ rootdir: /Users/subhadipdas/Desktop/Desktop - SUBHADIP’s MacBook Pro/AUTOMATED
 plugins: Faker-37.0.2, anyio-4.8.0
 collected 4 items
 
-tests/test_buggy_app.py FFFF                                             [100%]
+tests/test_buggy_app.py ....                                             [100%]
 
-=================================== FAILURES ===================================
-_______________________ test_register_user_invalid_email _______________________
-
-    def test_register_user_invalid_email():
-        """Test registration with invalid email format (missing @)."""
-        result = register_user("invalid-email", "password123", "password123")
-        # Expectation: Should fail validation
->       assert result["status"] == "error", "Should reject invalid email format"
-E       AssertionError: Should reject invalid email format
-E       assert 'success' == 'error'
-E         
-E         - error
-E         + success
-
-tests/test_buggy_app.py:14: AssertionError
-________________________ test_login_user_wrong_password ________________________
-
-    def test_login_user_wrong_password():
-        """Test login with correct email but wrong password."""
-        result = login_user("user@example.com", "wrongpassword")
-        # Expectation: Should fail login
->       assert result["status"] == "error", "Should fail login with wrong password"
-E       AssertionError: Should fail login with wrong password
-E       assert 'success' == 'error'
-E         
-E         - error
-E         + success
-
-tests/test_buggy_app.py:20: AssertionError
-________________________ test_calculate_discount_logic _________________________
-
-    def test_calculate_discount_logic():
-        """Test discount calculation logic."""
-        # Price 200, 50% discount -> Should be 100
-        result = calculate_discount(200, 50)
->       assert result == 100, f"Expected 100, got {result}"
-E       AssertionError: Expected 100, got 150
-E       assert 150 == 100
-
-tests/test_buggy_app.py:26: AssertionError
-_______________________ test_withdraw_balance_overdraft ________________________
-
-    def test_withdraw_balance_overdraft():
-        """Test withdrawing more than available balance."""
-        result = withdraw_balance(100, 200)
-        # Expectation: Should fail due to insufficient funds
->       assert result["status"] == "error", "Should fail withdrawal when amount > balance"
-E       AssertionError: Should fail withdrawal when amount > balance
-E       assert 'success' == 'error'
-E         
-E         - error
-E         + success
-
-tests/test_buggy_app.py:32: AssertionError
-=========================== short test summary info ============================
-FAILED tests/test_buggy_app.py::test_register_user_invalid_email - AssertionE...
-FAILED tests/test_buggy_app.py::test_login_user_wrong_password - AssertionErr...
-FAILED tests/test_buggy_app.py::test_calculate_discount_logic - AssertionErro...
-FAILED tests/test_buggy_app.py::test_withdraw_balance_overdraft - AssertionEr...
-============================== 4 failed in 0.05s ===============================
+============================== 4 passed in 0.03s ===============================
