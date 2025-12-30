@@ -4,6 +4,35 @@ rootdir: /Users/subhadipdas/Desktop/Desktop - SUBHADIP’s MacBook Pro/AUTOMATED
 plugins: Faker-37.0.2, anyio-4.8.0
 collected 4 items
 
-tests/test_buggy_app.py ....                                             [100%]
+tests/test_buggy_app.py ..FF                                             [100%]
 
-============================== 4 passed in 0.03s ===============================
+=================================== FAILURES ===================================
+________________________ test_calculate_discount_logic _________________________
+
+    def test_calculate_discount_logic():
+        """Test discount calculation logic."""
+        # Price 200, 50% discount -> Should be 100
+        result = calculate_discount(200, 50)
+>       assert result == 100, f"Expected 100, got {result}"
+E       AssertionError: Expected 100, got 300.0
+E       assert 300.0 == 100
+
+tests/test_buggy_app.py:26: AssertionError
+_______________________ test_withdraw_balance_overdraft ________________________
+
+    def test_withdraw_balance_overdraft():
+        """Test withdrawing more than available balance."""
+        result = withdraw_balance(100, 200)
+        # Expectation: Should fail due to insufficient funds
+>       assert result["status"] == "error", "Should fail withdrawal when amount > balance"
+E       AssertionError: Should fail withdrawal when amount > balance
+E       assert 'success' == 'error'
+E         
+E         - error
+E         + success
+
+tests/test_buggy_app.py:32: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_buggy_app.py::test_calculate_discount_logic - AssertionErro...
+FAILED tests/test_buggy_app.py::test_withdraw_balance_overdraft - AssertionEr...
+========================= 2 failed, 2 passed in 0.04s ==========================
